@@ -1,0 +1,147 @@
+Here is some draft Proxy + Decision support logic (reminder: the conceptual diagram) to provide a realistic example of a few of the things I have been talking about. The syntax isn't yet nailed down. For people used to KC's Procedural/Assertion/Clinical statement etc hierarchy, the equivalences are roughly:
+•	Procedural knowledge: a Plan; not shown here (it's the pink part on the diagram)
+•	Assertional knowledge: the 'Decision Module' shown here, e.g. 'Ki67 > 14% -> high'
+•	Clinical statements: for us, these are way down in the EHR and elsewhere - the epistemic view is converted to an ontic view by the Proxy objects, which provide a 'vrtual subject' view (as best as can be done)
+This is a high-level language from which we will generate code that includes, among other things, proxy value caching and instrumented logic execution (i.e. trace generation).
+Most if not all of the situation context is abstracted away at the Proxy level - the idea being that the semantics of the symbols are understood within the context of specific proxy and decision modules. For example, no-one really cares at the proxy level about the time, place etc that a diagnosis of 'metastatic breast cancer HER2+ / ER- / PR-', they just want to know about the facts of is the patient metastic / HER2 / ER / PR +ve or -ve and so on. The question of normalising situation & content remains for me at the epistemic level - we do it with the openEHR EHR; FHIR tries to do it in its own way. Anyway, in the decision layer, if you are interrogating those kind of details, it means you don't trust something in the stack, and you are doing some kind of forensic checking.
+Not sure if this is directly relevant to today's agenda, if not just consider it background.
+- t
+== Breast Cancer Decision Protocol
+##########################
+proxy
+    Core_patient
+
+definitions
+    Critical_high_bp:   Quantity = 180 mm[Hg]
+    Low_oxygen_sat:     Proportion = 92%
+
+admin
+    date_of_birth:  Date
+    sex:            Terminology_term
+
+state
+    systolic_blood_pressure:    Quantity {currency = 1min}
+    diastolic_blood_pressure:   Quantity {currency = 1min}
+    heart_rate:                 Quantity {currency = 30s}
+    oxygen_sat:                 Proportion {currency = 30s}
+    blood_glucose:              Quantity
+
+events
+    critical_high_bp_event:
+        systolic_blood_pressure > Critical_high_bp
+
+    low_oxygen_sat_event:
+        oxygen_sat < Low_oxygen_sat
+    ...
+    
+###############################
+proxy
+    Breast_cancer_patient
+    
+inherit
+    Core_patient
+    
+state
+    tnm_t: String {P60D}
+    tnm_n: String {P60D}
+    tnm_m: String {P60D}
+    tnm_g: String {P60D}
+
+    metastases:             Terminology_term «pos_neg_vs» {P60D}
+    estrogen_receptor:      Terminology_term «pos_neg_vs» {P60D}
+    progesterone_receptor:  Terminology_term «pos_neg_vs» {P60D}
+    her2_expression:        Terminology_term «pos_neg_vs» {P60D}
+    
+    ki67:               Quantity {P60D}
+    ejection_fraction:  Quantity {P30D}
+    
+derived
+    metastatic:
+        metastases = |positive|
+
+    er_negative:
+        estrogen_receptor = |negative|
+
+    er_positive:
+        estrogen_receptor = |positive|
+        
+    pr_negative:
+        progesterone_receptor = |negative|
+
+    pr_positive:
+        progesterone_receptor = |positive|
+        
+    her2_negative:
+        her2_expression = |negative|
+
+    her2_positive:
+        her2_expression = |positive|
+#####################
+decision_module 
+    Oncology_breast_cancer
+
+proxy
+    P: Breast_cancer_patient
+
+definitions
+    ki67_threshold: Quantity = 14%
+    
+conditions
+    ki67_high:
+        P.ki67 >= ki67_threshold
+        
+    anthracyclines_contraindicated:
+        P.has_diagnosis (|Transmural MI|) or
+        P.ejection_fraction < 40% or
+        P.has_diagnosis ({|heart failure (class II)|, 
+                          |heart failure (class III)|,
+                          |heart failure (class IV)|})
+                                
+    taxanes_contraindicated:
+        P.is_type1_diabetic or
+        P.has_allergy (|taxanes|) or 
+        P.has_intolerance (|taxanes|)
+        
+rules
+    molecular_subtype: Terminology_term
+        if P.er_positive and P.her2_negative and not ki67_high
+            Result <- |Luminal A|
+
+        elseif P.er_positive and P.her2_negative and ki67_high
+            Result <- |Luminal B (HER2 negative)|
+
+        elseif P.er_positive and P.her2_positive
+            Result <- |Luminal B (HER2 positive)|
+
+        elseif P.er_negative and P.pr_negative and P.her2_positive and ki67_high
+            Result <- |HER2|
+
+        elseif P.er_negative and P.pr_negative and P.her2_negative and ki67_high
+            Result <- |Triple negative|
+            
+        else 
+            Result <- |none|
+    
+    chemotherapy_regime: Terminology_term
+        if not P.metastatic 
+            if molecular_subtype in {|Luminal B (HER2 negative)|, |Triple negative|} and
+                    (P.tnm_t > '1a' or P.tnm_n > '0')
+                Result <- |taxanes|
+            
+            elseif molecular_subtype = |Luminal A| and (P.tnm_t >= '3' or P.tnm_n >= '2' or P.tnm_g >= '3')
+                Result <- |anthracyclines|
+            
+            elseif molecular_subtype = |Luminal B (HER2 positive)| and (P.tnm_t = '1b' or P.tnm_t = '1c' and P.tnm_n = '0')
+                    or
+                    molecular_subtype = |HER2| and (P.tnm_t = '1b' and P.tnm_n = '0')
+                Result <- |paditaxel + trastuzumab|
+            else ...
+                Result <-
+            
+        else -- metastatic
+            if ...
+                Result <-
+            elseif ...
+                Result <-
+            else
+                Result <-
