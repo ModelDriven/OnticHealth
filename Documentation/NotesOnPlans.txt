@@ -1,0 +1,37 @@
+Sam has hypertension
+Sam is a patient
+I(Pratitioner) have a plan 
+- (to control sam's hypertension situation) - goal "clinical intention"
+Under this plan;
+-- objectives
+---- an objective is that the assessement panel for hypertension
+---- an objective is that average systolic bp is less than 120 averaged over 3 days
+---- an objective is (some measure)
+
+-- Interventions (an activity)
+
+Clinical guideline (is an intervention)
+-- has stated goal (robert)
+-- Goal (Prevent stroke) - patient focused
+-- Goal (thin the blood)
+-- set of interventions
+---- potential effect
+
+if you do (this) it will have (that) effect
+(goal) is to thin the blood
+planning as an activity
+
+Hypertension is bad
+Sam has hypertension (evidence)
+We have a plan to address(make not true) sam'e hypertension 
+it includes an intervention with a goal to thin the blood
+Hypertension has heart risk
+thin blood reduces heart risk
+asprin thins blood
+sam should take asprin (evidence/justification)
+
+care plan (thomas)
+index diagnosis 
+list of interventions
+list of targets (measure)
+
