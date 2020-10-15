@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Situations/"
+     xml:base="https://models.modeldriven.org/Health/Situations/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Situations">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/SituationTypes"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Time"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ContactInformation"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impactedBy -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impactedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impacts -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impacts">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/affectedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/affectedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affects"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isEffect"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/effect_affectedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">affected by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/affects -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/affects">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affectedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isEffect"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/effect_affects"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/casuses -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/casuses">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/enables"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causation_causedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isCausation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/causation_casuses"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/causation_casuses -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/causation_casuses">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Causation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/causation_causedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/causation_causedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Causation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/causedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/causedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/enabledBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/casuses"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causation_casuses"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isCausation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/causation_causedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">caused by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/effect_affectedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/effect_affectedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/effect_affects -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/effect_affects">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/enabledBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/enabledBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/enables"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/enablement_enables"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isEnablement"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/enablement_enabledBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enabled by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/enablement_enabledBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/enablement_enabledBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Enablement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/enablement_enables -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/enablement_enables">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Enablement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/enables -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/enables">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/enablement_enabledBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isEnablement"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/enablement_enables"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasCurrent -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/hasCurrent">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the set of situations that have relevance to the subject situation within the same timeframe as the current situation</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has current</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasLatest -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/hasLatest">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the situation that is the most recent relevant other situation of some kind</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has latest</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasQualityValue -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/hasQualityValue">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has quality value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasRelevant -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/hasRelevant">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a situation that is relevant to another situation</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has relevant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasState -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/hasState">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/indicates -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/indicates">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isIndicatedBy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/indication_isIndicatedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isIndication"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/indication_indicates"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/indication_indicates -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/indication_indicates">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Indication"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/indication_isIndicatedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/indication_isIndicatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Indication"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/involvedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involvedIn">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/involves"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/Actor"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/involvement_involves"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isInvolvement"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/involvement_involvedIn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">involved in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/involvement_involvedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involvement_involvedIn">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Involvement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/involvement_involves -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involvement_involves">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Involvement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/involves -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involves">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/Actor"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/involvement_involvedIn"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isInvolvement"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/involvement_involves"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isAbout -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isAbout">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is about</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isCausation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isCausation">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Causation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Causation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Causation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isEffect -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isEffect">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Effect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isEnablement -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isEnablement">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Enablement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Enablement"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Enablement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isIndicatedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isIndicatedBy">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/indication_indicates"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isIndication"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/indication_isIndicatedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is indicated by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isIndication -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isIndication">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Indication"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Indication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Indication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isInvolvement -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isInvolvement">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Involvement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Involvement"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Involvement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isNegationEffect -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isNegationEffect">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/NegationEffect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/NegationEffect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Negation Effect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isPlayedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isPlayedBy">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is played by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isSubjectOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isSubjectOf">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is subject of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/likelihood -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/likelihood">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/PotentialSituation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/ProbabilityMetric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/negatedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negatedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/negationEffect_negates"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isNegationEffect"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/negationEffect_negatedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">negated by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/negates -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negates">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/negatedBy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/negationEffect_negatedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isNegationEffect"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/negationEffect_negates"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/negationEffect_negatedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negationEffect_negatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/NegationEffect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/negationEffect_negates -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negationEffect_negates">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/NegationEffect"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/playsRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/playsRole">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isPlayedBy"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plays role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/stateOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/stateOf">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/hasState"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">state of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isNegated -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Situations/isNegated">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is negated inverts the truth value of the statement.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is negated</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+    </rdf:Description>
+    <owl:Annotation>
+        <owl:annotatedSource>
+            <owl:Axiom>
+                <owl:annotatedSource rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#disjointWith"/>
+                <owl:annotatedTarget rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</rdfs:comment>
+            </owl:Axiom>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</owl:annotatedTarget>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 10/7/20 12:51 PM</rdfs:comment>
+    </owl:Annotation>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/RoleType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/RoleType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Occurrences/Occurrence -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/Occurrence">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/SituationType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationType">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Library/Objectives/Consequence"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/ActualSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalEntity"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Library/Objectives/Consequence"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Actual Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/ActualState -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/ActualState">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Actual State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/AnyRole -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/AnyRole">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/involvedIn"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a role is a facet of an identifiable thing involved in one or more situations.
+[FIBO] Thing in role.
+[SOWA 1999] Relative thing</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Causation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Causation">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Enablement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/causation_casuses"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/causation_causedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isCausation"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isCausation"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/CompositeSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/CompositeSituation">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/Relationship"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composite Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/CurrentSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/CurrentSituation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/PastSituation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Current Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Effect -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Effect">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affectedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affects"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isEffect"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isEffect"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Enablement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Enablement">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/enablement_enabledBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/enablement_enables"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isEnablement"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isEnablement"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/EpistemicSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/EpistemicSituation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isNegated"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Epistemic Situation is kind of  situation where that situation is about, or focused on, another situation as its topic.
+[Hutchins, Searle] Aboutness</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epistemic Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Indication -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Indication">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/indication_indicates"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/indication_isIndicatedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isIndication"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isIndication"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Involvement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Involvement">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/involvement_involvedIn"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/involvement_involves"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isInvolvement"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isInvolvement"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/NegationEffect -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/NegationEffect">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Effect"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isNegationEffect"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/negationEffect_negatedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/negationEffect_negates"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isNegationEffect"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Negation Effect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/OnticSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/OnticSituation">
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Ontic situation is an ontological situation, representing things in the world - past, present, or future.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontic Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Participant -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Participant">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/AnyRole"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a participant is a role of an actor  involved in a situation.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/PastSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/PastSituation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Past Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/PotentialSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/PotentialSituation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potential Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Quality -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Quality">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Relationship"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a quality is an ontic state representing a characteristic of an entity at a point in time or over a range of time. Examples include the temperature or height of a person at a particular time.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Relationship -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Relationship">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A relationship is a material atomic situation involving related things that are not part of the relationship. A relationship may be asserted within a context as true or false within that context. Each relationship type has a number of  bindings of which do not change for the life of the relationship.. 
+A relationship may be true or false within its context (including a timeframe) but is atomic in its truth value.
+Relationships may participate in (be bound to) other relationships and as such bindings involving a relationship may change over time. That is, relationships are &quot;first class&quot; objects.
+
+[IDEAS] tuple: A relationship between two or more things.
+Note: SMIF allows one end of a relationship.
+
+[Devlin] Relation</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Situation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/Situation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/Occurrence"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Library/Objectives/Consequence"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/CompositeSituation"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/Relationship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/involves"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A situation is an identifiable entity composed of an arrangement of entities and the relations between them over a time interval. Situations are may be asserted as true or false in some context.  Situations may change over time, unless otherwise constrained. As an identifiable entity, situations may participate in relationships, thus situations are &quot;first class&quot; elements.
+
+[SBVR] &quot;State of affairs&quot;
+[SOWA1999] Nexus
+[Barwise 1999] Situation
+[Devlin] Situation with corresponding infon(s).
+</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/State -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/State"/>
+    <owl:Annotation>
+        <owl:annotatedSource>
+            <owl:Axiom>
+                <owl:annotatedSource rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#disjointWith"/>
+                <owl:annotatedTarget rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</rdfs:comment>
+            </owl:Axiom>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</owl:annotatedTarget>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 10/7/20 12:51 PM</rdfs:comment>
+    </owl:Annotation>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TimeInterval -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Library/Objectives/Consequence -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Library/Objectives/Consequence"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 16:51:14 GMT -->

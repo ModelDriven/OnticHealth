@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/QuantitiesAndUnits/"
+     xml:base="https://models.modeldriven.org/Health/QuantitiesAndUnits/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Time"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quantities and Units</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/CodedNumeric -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/CodedNumeric"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/DMS -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/DMS"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/DecimalNumber -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/DecimalNumber"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Image -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Image"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Measure -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Measure"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/PentaScale -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/PentaScale">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moderate</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Very High</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Very Low</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Percentage -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Percentage"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Range -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Range"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Scale -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Scale"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/TriScale -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/TriScale">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Video -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Video"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/ConfidenceMetric -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/ConfidenceMetric">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confidence Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Count -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Count">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/CurrencyBenefitMetric -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/CurrencyBenefitMetric">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Harm-BenefitMetric"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Currency Benefit Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Harm-BenefitMetric -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Harm-BenefitMetric">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harm-Benefit Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/ProbabilityMetric -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/ProbabilityMetric">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Probability Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Coordinate</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 15:50:03 GMT -->

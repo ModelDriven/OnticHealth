@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Values/"
+     xml:base="https://models.modeldriven.org/Health/Values/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Values">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/BooleanValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/DataValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/DataValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/IntegerValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/MeasurementValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/MeasurementValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/Number -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/Number"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/NumericValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/NumericValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/PrimitiveValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/PrimitiveValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/RealValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/RealValue"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/StringValue -->
+
+
+    <rdfs:Datatype rdf:about="https://models.modeldriven.org/Health/Values/StringValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/definedWithinSystem -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/definedWithinSystem">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Values/unitOfSystem"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defined within system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/unitOfSystem -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/unitOfSystem">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit of system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/unitReference -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/unitReference">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IRI-Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit reference</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/hasValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Values/hasValue">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/MeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/offset -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Values/offset">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/RealValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/ratio -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Values/ratio">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/RealValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/symbol -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Values/symbol">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/IdentifiableThing -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/IdentifiableThing">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/BaseUnitType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/BaseUnitType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Base Unit Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/QuantityKind -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/QuantityKind">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/ValueType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quantity kind</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/ScalarQuantity -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/ScalarQuantity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Values/hasValue"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Values/Number"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scalar Quantity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/StructuredValue -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/StructuredValue">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Structured Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/SystemOfUnits -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/SystemOfUnits">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Namespace"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">System of Units</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/UnitType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/UnitType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/QuantityKind"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Values/definedWithinSystem"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Values/unitReference"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/UnitValue -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/UnitValue">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/StructuredValue"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/Value -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/Value">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Values/ValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Values/ValueType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/ValueType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Value Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Values/False">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">false</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Values/True">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-06 at 22:52:34 GMT -->
