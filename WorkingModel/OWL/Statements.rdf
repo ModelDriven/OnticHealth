@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Statements/"
+     xml:base="https://models.modeldriven.org/Health/Statements/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Statements">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Occurrences"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Plans"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Resources"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isAbout -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isAbout">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/isSubjectOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/approvalOfPlan -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/approvalOfPlan">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Plan"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">approval of plan</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/approvalToPerform -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/approvalToPerform">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/Activity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">approval to perform</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/approvedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/approvedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Statements/approvalOfPlan"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Plan"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">approved by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/informs -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/informs">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Utterance"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Listener"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/isInformedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/isInformedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Statements/informs"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Listener"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Utterance"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is informed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/statedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/statedBy">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Statement"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Author"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stated by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/states -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/states">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Statements/statedBy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Author"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Statement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Occurrences/Activity -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/Activity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/Plan -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Plans/Plan">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Statements/approvedBy"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Approval -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Approval">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Statements/DeclaritiveStatement"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">permission to perform some activity or initiate a plan, including the consent to share information</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/AssertiveStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/AssertiveStatement">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assertive Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Author -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Author">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Participant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Statements/states"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An author is a kind of performer that makes statements about situations.
+</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/CommissiveStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/CommissiveStatement">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Commissive Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/DeclaritiveStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/DeclaritiveStatement">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Declaritive Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/DirectiveStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/DirectiveStatement">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Directive Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/ExpressiveStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/ExpressiveStatement">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Expressive Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/InterrogativeStatement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/InterrogativeStatement">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Statements/DirectiveStatement"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interrogative is a directive statement that asks a question or asks for information.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interrogative Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Listener -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Listener">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Participant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Statements/isInformedBy"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Record -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Record">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Statements/Statement"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Statement -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Statement">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Statements/AssertiveStatement"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Statements/CommissiveStatement"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Statements/DeclaritiveStatement"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Statements/DirectiveStatement"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Statements/ExpressiveStatement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Statements/statedBy"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a statement is a kind of Epistemic Situation representing the communication or recording of an author&apos;s intention concerning a situation.
+
+[BFO] Representational artifact</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Statements/Utterance -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Statements/Utterance">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/Occurrence"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Statements/Statement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Statements/informs"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:24 GMT -->

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Devices/"
+     xml:base="https://models.modeldriven.org/Health/Devices/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Devices">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ContactInformation"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Occurrences"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Actors"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Resources"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ContactInformation/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/networkAddress -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Devices/networkAddress">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Devices/ComputerSystem"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">network address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/providesSecurityLevel -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Devices/providesSecurityLevel">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicationsNetwork"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/CommunicationsSecurityLevel"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">provides security level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/scopesIdentifier -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/scopesIdentifier">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/uniqueWithin"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/uniqueWithin -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/uniqueWithin"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/Device -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Actors/Device">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Devices/AutomationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ContactMeans -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/ContactMeans">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/uniqueWithin"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicationsNetwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/AutomationType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/AutomationType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CyberResource"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Actors/Device"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Automation Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/CommunicatingDevice -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/CommunicatingDevice">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CyberResource"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Device"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Communicating Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/CommunicationsLink -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/CommunicationsLink">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicatingDevice"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicationsNetwork"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Communications Link</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/CommunicationsNetwork -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/CommunicationsNetwork">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Namespace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/scopesIdentifier"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Communications Network</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/ComputerSystem -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/ComputerSystem">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/Device"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicatingDevice"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CyberResource"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/CyberResource -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/CyberResource">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cyber Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Devices/Software -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Devices/Software">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/Device"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CyberResource"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Resources/Tool"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:39 GMT -->

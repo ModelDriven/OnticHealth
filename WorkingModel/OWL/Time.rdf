@@ -72,6 +72,7 @@
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/existsFor">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/intervalOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exists for</rdfs:label>
@@ -121,6 +122,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/happensDuring">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTemporalPart"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">happens during</rdfs:label>
@@ -154,7 +156,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasMemberTimePoint">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/timePointOn"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has member time Point</rdfs:label>
@@ -167,7 +168,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasTemporalPart">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/happensDuring"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has temporal part</rdfs:label>
@@ -192,7 +192,6 @@
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/intervalOf">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/existsFor"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">interval of</rdfs:label>
@@ -357,6 +356,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/timePointOn">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasMemberTimePoint"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">time point on</rdfs:label>
@@ -573,4 +573,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 16:10:22 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:27 GMT -->

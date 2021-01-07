@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Foundation/"
+     xml:base="https://models.modeldriven.org/Health/Foundation/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Foundation">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/SituationTypes"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Time"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ContactInformation"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Identifiers/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Identifiers"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/asserts -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/asserts">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/exhibitedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/exhibitedBy">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exhibited by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/exhibitsFacet -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/exhibitsFacet">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exhibits facet</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/facetOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/facetOf">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">facet of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/facetedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/facetedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">faceted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasBaseRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasBaseRole">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
+        </owl:propertyChainAxiom>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">role that will supertype of derived role and synthesized into the composite pattern.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has base role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasDerivedRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasDerivedRole">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasBaseRole"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
+        </owl:propertyChainAxiom>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">role that is defined as being a subtype of a base role</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has derived role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasPart">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasSubtype -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasSubtype">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has subtype</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasSupertype -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasSupertype">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has supertype</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasTypeReference -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasTypeReference">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/SituationTypes/ExternalTypeReference"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has type reference</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/holdsWithin -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/holdsWithin">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/asserts"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">holds within</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impact_impactedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impactedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impact_impacts -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impacts">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impactedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/impactedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impacted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impacts -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/impacts">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in context of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/isImpact -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Impact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/isPartOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasPart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/isRoleDerivation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/isRoleDerivation">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Role Derivation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/justifiesSubtype -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/justifiesSubtype">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">justifies subtype</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/likelihood -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/likelihood">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/ProbabilityMetric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/negatedWithin -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/negatedWithin">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/negates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">negated within</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/negates -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/negates">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/sufficientSupertype -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/sufficientSupertype">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/justifiesSubtype"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sufficient supertype</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/hasName -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/hasName">
+        <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Name"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/hasPreferred -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/hasPreferred">
+        <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has preferred</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifiedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">identified by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifies -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/names -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/names">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Name"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/preferredFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/preferredFor">
+        <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/hasPreferred"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">preferred for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/scopesIdentifier -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/scopesIdentifier">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/uniqueWithin"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Namespace"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scopes identifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/uniqueWithin -->
+
+
+    <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/uniqueWithin">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Namespace"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unique within</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/value -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/Foundation/value">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/hasPreferred"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Actor -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Actor">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/DiscreetThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/ActualEntity -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/ActualEntity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Actual Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/CategoryType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/CategoryType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Context -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Context">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Foundation/DiscreetThing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/DiscreetThing -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/DiscreetThing">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A discreet thing is an identifiable thing that may be the subject of temporal relationships but does not inherently include those relationships.
+[Devlin] Individual
+[Barwise 1999] Uniformity</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Discreet Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/FacetType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/FacetType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Facet Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/IRI-Identifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/IRI-Identifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IRI Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/IdentifiableThing -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/IdentifiableThing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identifiable Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/IdentifiableType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/IdentifiableType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identifiable Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Identifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Identifier">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/StructuredValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/preferredFor"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Impact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Impact">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Name -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Name">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Namespace -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Namespace">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/PhaseType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/PhaseType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phase Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/RoleDerivation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/RoleDerivation">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A role derivation &quot;synthesizes&quot; a base role into a role within the context of a situation use based on the synthesis pattern described in 
+[Reenskaug 1995] Derived Role Constraint.
+[UML] Role binding</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role Derivation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/RoleType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/RoleType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/FacetType"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A role type is a facet type that defines a specific purpose or behavior of a class of things.  E.g. teacher, policeman, or employer.
+[Reenskaug 1995] Role
+[FIBO] Role. Note that partyInRole or thingInRole are implied by classification of a thing.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Technical Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Term -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Term">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Name"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/TextIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/TextIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Text Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/Type -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/Type">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/UniqueIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/uniqueWithin"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unique Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unique Text Identifier</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:28 GMT -->

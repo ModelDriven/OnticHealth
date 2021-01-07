@@ -47,6 +47,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
     </owl:ObjectProperty>
     
@@ -174,6 +175,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasSupertype">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has supertype</rdfs:label>
@@ -186,7 +188,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has type</rdfs:label>
     </owl:ObjectProperty>
@@ -349,6 +350,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/negatedWithin">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/negates"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">negated within</rdfs:label>
@@ -360,7 +362,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Foundation/negates">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/negatedWithin"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
     </owl:ObjectProperty>
@@ -449,7 +450,6 @@
 
     <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/hasPreferred">
         <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
-        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/preferredFor"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has preferred</rdfs:label>
     </owl:ObjectProperty>
@@ -490,6 +490,7 @@
 
     <owl:ObjectProperty rdf:about="https://models/modeldriven.org/Health/Identifiers/preferredFor">
         <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/hasPreferred"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Identifier"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">preferred for</rdfs:label>
     </owl:ObjectProperty>
@@ -920,4 +921,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 16:27:32 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:28 GMT -->

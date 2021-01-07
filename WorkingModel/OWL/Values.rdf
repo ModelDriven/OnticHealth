@@ -2,6 +2,7 @@
 <rdf:RDF xmlns="https://models.modeldriven.org/Health/Values/"
      xml:base="https://models.modeldriven.org/Health/Values/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -135,7 +136,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/definedWithinSystem">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Values/unitOfSystem"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defined within system</rdfs:label>
@@ -147,6 +147,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/unitOfSystem">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Values/definedWithinSystem"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit of system</rdfs:label>
@@ -258,6 +259,17 @@
     
 
 
+    <!-- https://models.modeldriven.org/Health/Values/QuantityRepresentation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/QuantityRepresentation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/QuantityKind"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quantity representation defines a way to measure a quantity kind as a unit type or scale</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quantity Representation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://models.modeldriven.org/Health/Values/ScalarQuantity -->
 
 
@@ -298,7 +310,7 @@
 
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Values/UnitType">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/QuantityKind"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/QuantityRepresentation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
@@ -398,4 +410,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-06 at 22:52:34 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:33 GMT -->

@@ -166,6 +166,37 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTimeCoordinate"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has time scale</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasTimeCoordinate -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/hasTimeCoordinate"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -239,6 +270,12 @@
     <owl:Class rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/UnitValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Coordinate</rdfs:label>
     </owl:Class>
 </rdf:RDF>
@@ -254,4 +291,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 15:50:03 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:29 GMT -->

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/HumanCharacteristics/"
+     xml:base="https://models.modeldriven.org/Health/HumanCharacteristics/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Actors"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Characteristics</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/hasBodyPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/hasBodyPart">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has body part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is part of person</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/Person -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Actors/Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/hasBodyPart"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/Arm -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/Arm">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/Brain -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/Brain">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/Head -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/Head">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Body Part</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HumanCharacteristics/Leg -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/Leg">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:10 GMT -->

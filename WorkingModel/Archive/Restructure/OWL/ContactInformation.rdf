@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/ContactInformation/"
+     xml:base="https://models.modeldriven.org/Health/ContactInformation/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/ContactInformation">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contact Information</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ContactAvailability -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/ContactAvailability">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">day</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emergency</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">evening</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">night</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">primary</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">secondary</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ContactPurpose -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/ContactPurpose">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">other</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">personal</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">work</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/areaCode -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/areaCode">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneAreaCode"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">area code</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/callSign -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/callSign">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/RadioContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">call sign</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/channel -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/channel">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/RadioContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/NetworkIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/cityID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/cityID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">city ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/contactFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactFor">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/isContactVia"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactFor"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contact for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/contactVia -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactVia">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactFor"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/isContactVia"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contact via</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/contactVia_contactFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactFor">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/countryCode -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/countryCode">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneCountryCode"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">country code</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/countryID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/countryID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">country ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/countyID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/countyID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">county ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/electronicAddress -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/electronicAddress">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/InternetContact"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/WebsiteContact"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/NetworkIdentifier"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/IRI-Identifier"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electronic address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/isContactVia -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/isContactVia">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Contact Via</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/line -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/line">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/placeID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/placeID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">place ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/postBoxID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/postBoxID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalCode"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">post box ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/postCode -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/postCode">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalCode"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">post code</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/recipientName -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/recipientName">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Name"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">recipient name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/regionID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/regionID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">region ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/securityLevel -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/securityLevel">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/CommunicationsSecurityLevel"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">security level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/state_provinceID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/state_provinceID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">state_province ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/streetID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/streetID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">street ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/telephoneExtension -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/telephoneExtension">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">telephone extension</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/unitID -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/unitID">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationID"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit ID</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/availability -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/availability">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactAvailability"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/documentCapable -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/documentCapable">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">document capable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/faxCapable -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/faxCapable">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fax capable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/mobile -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/mobile">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/postalAddress -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/postalAddress">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddressText"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">postal address</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/purpose -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/purpose">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactVia"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactPurpose"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/telephoneExchange -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/telephoneExchange">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">telephone exchange</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/telephoneNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/telephoneNumber">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberText"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">telephone number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/textMessageCapable -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/textMessageCapable">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text message capable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/value -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/value">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneAreaCode"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneCountryCode"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/videoCapable -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/videoCapable">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video capable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/voiceCapable -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/ContactInformation/voiceCapable">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/BooleanValue"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">voice capable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/CommunicationsSecurityLevel -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/CommunicationsSecurityLevel">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Communications Security Level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ContactMeans -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/ContactMeans">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contact Means</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ContactVia -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/ContactVia">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Relationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactFor"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/contactVia_contactVia"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/isContactVia"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/isContactVia"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contact Via</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/Contactable -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/Contactable">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/ElectronicContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electronic Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/EmailAddress -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/EmailAddress">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/InternetContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Email Address</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/InternetContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/InternetContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Internet Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/NetworkIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/NetworkIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TechnicalIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Network Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PostalAddress -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/PostalAddress">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ContactMeans"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Postal Address</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/PostalAddressStructured">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddress"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/cityID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/countryID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/countyID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/placeID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/postBoxID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/postCode"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/state_provinceID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/streetID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/unitID"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Postal Address Structured</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PostalAddressText -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/PostalAddressText">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddress"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/postalAddress"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Postal Address Text</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PostalCode -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/PostalCode">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Postal Code</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PrivateNetworkContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/PrivateNetworkContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/InternetContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Private Network Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/RadioContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/RadioContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radio Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/SocialNetworkContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/SocialNetworkContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/InternetContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Social Network Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/TelephoneAreaCode -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneAreaCode">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/value"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">999</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telephone Area Code</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/TelephoneCountryCode -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneCountryCode">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/value"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">99</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telephone Country Code</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/TelephoneNumber -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumber">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telephone Number</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberStructured">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumber"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/line"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/areaCode"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/countryCode"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/telephoneExtension"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/telephoneExchange"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/IntegerValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telephone Number Structured</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberText -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumberText">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/TelephoneNumber"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/telephoneNumber"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://models.modeldriven.org/Health/Values/StringValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telephone Number Text</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/WebsiteContact -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/ContactInformation/WebsiteContact">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/InternetContact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ContactInformation/electronicAddress"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Foundation/IRI-Identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Website Contact</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:35 GMT -->

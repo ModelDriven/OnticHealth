@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/HealthConditions/"
+     xml:base="https://models.modeldriven.org/Health/HealthConditions/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/HealthConditions">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/SituationTypes"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Actors"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Health Conditions</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/isAllergicTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HealthConditions/isAllergicTo">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/HealthConditions/AllergyIntoleranceCondition"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableType"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is allergic to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasState -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/hasState">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/stateOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/stateOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/ActualVitalSign -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/ActualVitalSign">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/VitalSign"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Actual Vital Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/AllergyIntoleranceCondition -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/AllergyIntoleranceCondition">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/Syndrome"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Allergy Intolerance Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/Disease -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/Disease">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/Syndrome"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/Geneome -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/Geneome">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/HealthQuality"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the haploid set of chromosomes in a gamete or microorganism, or in each cell of a multicellular organism.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/HealthCondition -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/HealthCondition">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a state of affairs for the subject relating to their well being</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Health Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/HealthQuality -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/HealthQuality">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/HealthCondition"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Health Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/Syndrome -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/Syndrome">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/HealthCondition"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a group of symptoms that together are characteristic of a specific disorder, disease, or the like.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/VitalSign -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/VitalSign">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/HealthQuality"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vital Sign</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/VitalSignBenchmark -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/VitalSignBenchmark">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/VitalSign"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/Benchmark"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vital Sign Benchmark</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:09 GMT -->

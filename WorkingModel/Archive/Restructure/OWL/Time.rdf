@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Time/"
+     xml:base="https://models.modeldriven.org/Health/Time/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Time">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/QuantityKinds"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time &amp; Temporal Entities</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTimeCoordinate"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/durationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/durationOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasDuration"/>
+        <rdfs:domain rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">duration of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/existsFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/existsFor">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/intervalOf"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exists for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/finishOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/finishOf">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/finishesAt"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">finish of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/finishesAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/finishesAt">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">finishes at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/granularityOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/granularityOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasGranularity"/>
+        <rdfs:domain rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">granularity of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/happensDuring -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/happensDuring">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTemporalPart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">happens during</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasDuration -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasDuration">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has duration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasGranularity -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasGranularity">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has granularity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasMemberTimePoint -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasMemberTimePoint">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has member time Point</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasTemporalPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasTemporalPart">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has temporal part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/hasTimeCoordinate -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasTimeCoordinate">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has time coordinate</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/intervalOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/intervalOf">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">interval of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/isAfter -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/isAfter">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is after</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/isBefore -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/isBefore">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/isAfter"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is before</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/isTemporallyRelated -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Temporally Related</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/occurresAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/occurresAt">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">occurres at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/overlapsFrom -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/overlapsFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overlaps from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/overlapsTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/overlapsTo">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overlaps to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">related from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relates to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/startOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/startOf">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/startsAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/startsAt">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/startOf"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starts at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/timePointOn -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/timePointOn">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasMemberTimePoint"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">time point on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/ActualSituation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/existsFor"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Situation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/Situation">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/DateAndTime -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/DateAndTime">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/DateCoordinate"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TimeCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date and Time</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/DateCoordinate -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/DateCoordinate">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date Coordinate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TemporalEntity -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TemporalEntity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temporal Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TemporalRegion -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TemporalRegion">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/hasTemporalPart"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/hasDuration"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/finishesAt"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/occurresAt"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/startsAt"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temporal Region</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TemporallyRelated -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TemporallyRelated">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Relationship"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temporally Related</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TimeCoordinate -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TimeCoordinate">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Coordinate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TimeInterval -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TimeInterval">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TimePoint -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TimePoint">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/timePointOn"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/TimeScale -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Time/TimeScale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/hasMemberTimePoint"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Time/hasGranularity"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time Scale</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:27 GMT -->

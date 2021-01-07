@@ -42,9 +42,7 @@
     <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
     
 
 
@@ -61,7 +59,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impactedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
@@ -77,6 +74,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impacts">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
@@ -91,7 +89,9 @@
     <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
+    </rdf:Description>
     
 
 
@@ -100,7 +100,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/affectedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -120,6 +119,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/affects">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -138,6 +138,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/casuses">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/enables"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -178,7 +179,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/causedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/enabledBy"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/casuses"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -380,7 +380,6 @@
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involvedIn">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/involves"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -430,6 +429,7 @@
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/involves">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/involvedIn"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range>
             <owl:Class>
@@ -454,7 +454,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isAbout">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is about</rdfs:label>
@@ -566,6 +565,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/isSubjectOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is subject of</rdfs:label>
@@ -588,6 +588,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negatedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/negates"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -607,7 +608,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Situations/negates">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/negatedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -671,6 +671,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
@@ -686,7 +687,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
@@ -738,8 +738,22 @@
 
 
     <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/PotentialSituation"/>
         <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
     </rdf:Description>
+    <owl:Annotation>
+        <owl:annotatedSource>
+            <owl:Axiom>
+                <owl:annotatedSource rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#disjointWith"/>
+                <owl:annotatedTarget rdf:resource="https://models.modeldriven.org/Health/Situations/PotentialSituation"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt; owl:Thing)</rdfs:comment>
+            </owl:Axiom>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt; owl:Thing)</owl:annotatedTarget>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 1/5/21 3:41 PM</rdfs:comment>
+    </owl:Annotation>
     <owl:Annotation>
         <owl:annotatedSource>
             <owl:Axiom>
@@ -751,7 +765,7 @@
         </owl:annotatedSource>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
         <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</owl:annotatedTarget>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 10/7/20 12:51 PM</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 1/5/21 3:41 PM</rdfs:comment>
     </owl:Annotation>
     
 
@@ -781,12 +795,11 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/SituationTypes/SituationType -->
+    <!-- https://models.modeldriven.org/Health/SituationTypes/Pattern -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationType">
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/Pattern">
         <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
-        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Library/Objectives/Consequence"/>
     </rdf:Description>
     
 
@@ -797,7 +810,6 @@
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalEntity"/>
-        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Library/Objectives/Consequence"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Actual Situation</rdfs:label>
     </owl:Class>
     
@@ -1151,10 +1163,35 @@
 
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Situations/PotentialSituation">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/phaseOf"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/phaseOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potential Situation</rdfs:label>
     </owl:Class>
+    <owl:Annotation>
+        <owl:annotatedSource>
+            <owl:Axiom>
+                <owl:annotatedSource rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#disjointWith"/>
+                <owl:annotatedTarget rdf:resource="https://models.modeldriven.org/Health/Situations/PotentialSituation"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt; owl:Thing)</rdfs:comment>
+            </owl:Axiom>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/PotentialSituation&gt; owl:Thing)</owl:annotatedTarget>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 1/5/21 3:41 PM</rdfs:comment>
+    </owl:Annotation>
     
 
 
@@ -1203,9 +1240,8 @@ Note: SMIF allows one end of a relationship.
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+                    <rdf:Description rdf:about="https://models.modeldriven.org/Health/SituationTypes/Pattern"/>
                     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
-                    <rdf:Description rdf:about="https://models.modeldriven.org/Library/Objectives/Consequence"/>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -1224,6 +1260,7 @@ Note: SMIF allows one end of a relationship.
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/IdentifiableThing"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Context"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:subClassOf>
@@ -1259,7 +1296,7 @@ Note: SMIF allows one end of a relationship.
         </owl:annotatedSource>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
         <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt;) replaced by DisjointClasses(&lt;https://models.modeldriven.org/Health/Situations/State&gt; owl:Thing)</owl:annotatedTarget>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 10/7/20 12:51 PM</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ on 1/5/21 3:41 PM</rdfs:comment>
     </owl:Annotation>
     
 
@@ -1268,13 +1305,6 @@ Note: SMIF allows one end of a relationship.
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/TimeInterval"/>
-    
-
-
-    <!-- https://models.modeldriven.org/Library/Objectives/Consequence -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Library/Objectives/Consequence"/>
 </rdf:RDF>
 
 
@@ -1288,4 +1318,4 @@ Note: SMIF allows one end of a relationship.
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 16:51:14 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:22 GMT -->

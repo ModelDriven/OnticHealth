@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Plans/"
+     xml:base="https://models.modeldriven.org/Health/Plans/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Plans">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Occurrences"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Statements"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/achevedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/achevedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/achieves"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Goal"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acheved by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/achieves -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/achieves">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/commitmentOfPerformer -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/commitmentOfPerformer">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/Value"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">commitment of performer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/consequenceOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/consequenceOf">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">consequence of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/hasConsequence -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/hasConsequence">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/consequenceOf"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has consequence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/hasCourseOfAction -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/hasCourseOfAction">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has course of action</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/hasObjective -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/hasObjective">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/objectiveFor"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has objective</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/hasTargetOutcome -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/hasTargetOutcome">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has target outcome</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/objectiveFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/objectiveFor">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">objective for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/quantifies -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/quantifies">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/serves -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/serves">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/hasCourseOfAction"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/Authorizer -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/Authorizer"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/CourseOfAction -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/CourseOfAction">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/Activity"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Plans/commitmentOfPerformer"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Course of Action is a future activity for configuring some aspect activities involving things, processes, locations, people, timing, or motivation undertaken to achieve Desired Results.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course Of Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/Goal -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/Goal">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An aim that a stakeholder intends to attain or accomplish; 
+[BMM] End: something that is to be accomplished.
+Objective</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/Objective -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/Objective">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">an objective is a desired (future state) fact identified as a consequence of plans</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/Plan -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/Plan">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Plans/PlanFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Plans/PlanFragment -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Plans/PlanFragment">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Statements/DirectiveStatement"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A plan is a design for a process that supports a stakeholders objectives, realized as goals. As a process definition a plan is a pattern for a series of activities as well as the resources required to meet objectives.
+
+[BMM] Course of Action: A Course of Action is an approach or plan for configuring some aspect of the enterprise involving things, processes, locations, people, timing, or motivation undertaken to achieve Desired Results. In other words, a Course of Action channels efforts towards Desired Results. To help ensure success in this regard, Courses of Action are governed by Directives.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plan Fragment</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:34 GMT -->

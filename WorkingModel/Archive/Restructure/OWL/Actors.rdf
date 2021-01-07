@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/Actors/"
+     xml:base="https://models.modeldriven.org/Health/Actors/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Actors">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/givenName -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/givenName">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">given name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/middleName -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/middleName">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">middle name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/namePart -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/namePart">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/nameSuffix -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/nameSuffix">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name suffix</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/officialGivenName -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/officialGivenName">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">official given name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/salutation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/salutation">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/surname -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/surname">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/surnamePrefix -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/surnamePrefix">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">surname prefix</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/title -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/title">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifiedBy -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifies -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/AccessIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/AccessIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/ManagedPersonIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Access Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/Device -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/Device">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/System"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/FinancialIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/FinancialIdentifier">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Financial Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/ManagedPersonIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/ManagedPersonIdentifier">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Managed Person Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/Organization -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/Organization">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/SocialAgent"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/PassportIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/PassportIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/ManagedPersonIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Passport Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/Person -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/Person">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/SocialAgent"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Animal"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/PersonName -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/PersonName">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Name"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/names"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Person Name</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/PersonStructuredName -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/PersonStructuredName">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/PersonName"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Actors/namePart"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Actors/salutation"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Person Structured Name</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/SocialAgent -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/SocialAgent">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Social Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/SocialSecurityNumber -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/SocialSecurityNumber">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Actors/ManagedPersonIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Social Security Number</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/System -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Actors/System">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:26 GMT -->

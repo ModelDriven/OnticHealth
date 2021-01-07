@@ -11,7 +11,6 @@
         <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Gallon(Imperial)"/>
         <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Quart(US)"/>
         <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Roentgen(R)"/>
-        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Coulomb_kilogram_(C_kg)."/>
         <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Curie(Ci)"/>
         <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Pound-Mass(USLb)"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
@@ -119,6 +118,16 @@
     <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/ConcentrationPercent">
         <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Concentration(Volume)"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concentration Percent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CoulombPerKilogram -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CoulombPerKilogram">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/RadiationExposure"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coulomb per kilogram</rdfs:label>
     </owl:Class>
     
 
@@ -543,15 +552,6 @@
     
 
 
-    <!-- https://models/modeldriven.org/Health/Units/Coulomb_kilogram_(C_kg). -->
-
-
-    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Coulomb_kilogram_(C_kg).">
-        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/RadiationExposure"/>
-    </owl:Class>
-    
-
-
     <!-- https://models/modeldriven.org/Health/Units/Cup(US) -->
 
 
@@ -697,4 +697,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2020-10-07 at 15:51:59 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:38 GMT -->

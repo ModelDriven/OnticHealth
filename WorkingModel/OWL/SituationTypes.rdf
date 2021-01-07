@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/SituationTypes/"
+     xml:base="https://models.modeldriven.org/Health/SituationTypes/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/SituationTypes">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Time"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/QuantityKinds"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Situation Types</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasBaseRole -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasBaseRole">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasDerivedRole"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasDerivedRole -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasDerivedRole">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isRoleDerivation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasSubtype -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasSupertype -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSupertype">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/derivedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/derivedIn">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationUse"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">roles defined as meaningful within the situation type</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">derived in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasReferenceId -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasReferenceId">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/ExternalTypeReference"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has reference id</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasRepetitionCount -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasRepetitionCount">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Count"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">number of times the situation should repeat</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has repetition count</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasRepetitionDuration -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasRepetitionDuration">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">how long each repetition should last</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has repetition duration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasRepetitionFrequency -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasRepetitionFrequency">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">how often each actual repetition should happen</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has repetition frequency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasRepetitionSeparation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasRepetitionSeparation">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">time between actual situations</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has repetition separation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/hasRoleDerivation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/SituationTypes/hasRoleDerivation">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/derivedIn"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationUse"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleDerivation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a role derived from a situation that is used by a composite situation.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has role derivation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/RoleDerivation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/RoleDerivation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/SituationTypes/derivedIn"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/Benchmark -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/Benchmark">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/Pattern"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A benchmark is a situation pattern containing expected values such that actual situations can be compared against the benchmark.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/CompositSituationType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/CompositSituationType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/CompositeSituation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A composite situation type is a Situation Definition that uses (synthesizes) other situation definitions as its parts. [Reenskaug 1995] Collaboration</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composit Situation Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/ExternalTypeReference -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/ExternalTypeReference">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Type"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reference to an external definition of a type</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External Type Reference</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/Pattern -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/Pattern">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/RepeditiveSituation">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/Pattern"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a situation that repeats. Repetitive is a &quot;mixin&quot; class, any situation may be repetitive unless otherwise restricted.</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Repeditive Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/SituationType -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationType">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A situation type defines a kind of identifiable arrangement of individuals, assertions and the relations between them over a timespan.  
+
+[DTV] situation kind: state of affairs that may or may not happen in some possible world
+[Barrwise 1999] Situation Type</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Situation Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/SituationUse -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/SituationUse">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/RoleType"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Situation use is a kind of role type that uses another situation type within a defining composite situation type based on the synthesis pattern described in [Reenskaug 1995] (Synthesis).</terms:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Situation Use</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/SituationTypes/Template -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/Template">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/Pattern"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A template is a situation pattern that may be missing some properties or relationships, such as date or participants. A template can then have matching situations that &quot;fill in&quot; those missing elements.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/ActualSituation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/CompositeSituation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/CompositeSituation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/SituationTypes/CompositSituationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/Situation -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/Situation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:25 GMT -->

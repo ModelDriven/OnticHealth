@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models/modeldriven.org/Health/Units/"
+     xml:base="https://models/modeldriven.org/Health/Units/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models/modeldriven.org/Health/Units">
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/RoentgenEquivalentMan(REM)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Gallon(Imperial)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Quart(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Roentgen(R)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Curie(Ci)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Pound-Mass(USLb)"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/QuantityKinds"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/FluidOunce(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Gallon(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Gray(Gy)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/RadiationAbsorbedDose(rad)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Cup(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Becquerel(Bq)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Ounce-Mass(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Pint(US)"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Sievert(Sv),"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/Units/Pound-Mass(Imperial)"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CompoundDuration -->
+
+
+    <rdfs:Datatype rdf:about="https://models/modeldriven.org/Health/Units/CompoundDuration"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Acre -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Acre">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Area"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Ampere -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Ampere">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/ElectricCurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Candela -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Candela">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Luminosity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Celsius -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Celsius">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CompoundDurationValue -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CompoundDurationValue">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Values/hasValue"/>
+                <owl:allValuesFrom rdf:resource="https://models/modeldriven.org/Health/Units/CompoundDuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compound Duration Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/ConcentrationPercent -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/ConcentrationPercent">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Concentration(Volume)"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concentration Percent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CoulombPerKilogram -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CoulombPerKilogram">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/RadiationExposure"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coulomb per kilogram</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CubicFeet -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CubicFeet">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Volume"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cubic Feet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CubicInch -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CubicInch">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Volume"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cubic Inch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/CubicMeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/CubicMeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Volume"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cubic Meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Day -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Day">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Degrees -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Degrees">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Angle"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Fahrenheit -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Fahrenheit">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Foot -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Foot">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Gram -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Gram">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Hertz -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Hertz">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Frequency"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Horsepower -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Horsepower">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Power"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Hour -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Hour">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Inch -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Inch">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Joule -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Joule">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Energy"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Kelvin -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Kelvin">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/KgPerCubicMeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/KgPerCubicMeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/MassDensity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kg per cubic meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Kilogram -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Kilogram">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/KilogramPerCubicMeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/KilogramPerCubicMeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Concentration(Mass)"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kilogram per cubic meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Kilometer -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Kilometer">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/KilometerPerHour -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/KilometerPerHour">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Speed"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kilometer per Hour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/KilowattHour -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/KilowattHour">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Energy"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kilowatt hour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/LiquidVolume -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/LiquidVolume">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Volume"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liquid Volume</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Meter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Meter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/MeterPerSecondSquared -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/MeterPerSecondSquared">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Acceleration"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meter per second squared</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Mile -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Mile">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/MilesPerHour -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/MilesPerHour">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Speed"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Miles per Hour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Millimeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Millimeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Millisecond -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Millisecond">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Minute -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Minute">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Mole -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Mole">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/AmountOfSubstance"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/MolePerCubicMeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/MolePerCubicMeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Concentration(amountOfSubstance)"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mole Per Cubic Meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Month -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Month">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Newton -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Newton">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Force"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/PSI -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/PSI">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Pressure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Pascal -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Pascal">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Pressure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Pound-Force -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Pound-Force">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Force"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Radians -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Radians">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Angle"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/ScalarDurationValue -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/ScalarDurationValue">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Values/ScalarQuantity"/>
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Duration"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scalar Duration Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Second -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Second">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/SquareFeet -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/SquareFeet">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Area"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Square Feet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/SquareMeter -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/SquareMeter">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Area"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Square Meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Volt -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Volt">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/ElectricPotential"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Watt -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Watt">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Power"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Yard -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Yard">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Year -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Year">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/ScalarDurationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Becquerel(Bq) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Becquerel(Bq)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Radioactivity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Cup(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Cup(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Curie(Ci) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Curie(Ci)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Radioactivity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/FluidOunce(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/FluidOunce(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Gallon(Imperial) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Gallon(Imperial)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Gallon(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Gallon(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Gray(Gy) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Gray(Gy)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/AbsorbedDose(Radiation)"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Ounce-Mass(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Ounce-Mass(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Pint(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Pint(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Pound-Mass(Imperial) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Pound-Mass(Imperial)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Pound-Mass(USLb) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Pound-Mass(USLb)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Quart(US) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Quart(US)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/Units/LiquidVolume"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/RadiationAbsorbedDose(rad) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/RadiationAbsorbedDose(rad)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/AbsorbedDose(Radiation)"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Roentgen(R) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Roentgen(R)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/RadiationExposure"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/RoentgenEquivalentMan(REM) -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/RoentgenEquivalentMan(REM)">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/DoseEquivalent(Radiation)"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Units/Sievert(Sv), -->
+
+
+    <owl:Class rdf:about="https://models/modeldriven.org/Health/Units/Sievert(Sv),">
+        <rdfs:subClassOf rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/DoseEquivalent(Radiation)"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:38 GMT -->

@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://models.modeldriven.org/Health/PhysicalEntities/"
+     xml:base="https://models.modeldriven.org/Health/PhysicalEntities/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://models.modeldriven.org/Health/PhysicalEntities">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Time"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ContactInformation"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Devices"/>
+        <owl:imports rdf:resource="https://models/modeldriven.org/Health/QuantityKinds"/>
+        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Resources"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Entities</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/SexKind -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/SexKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impactedBy -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impactedBy">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Foundation/impacts -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impacts">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/isImpact"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/addressOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/addressOf">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddress"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">address of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/altitude -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/altitude">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/birthDate -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/birthDate">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Animal"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">birth date</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/boundedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/boundedBy">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/boundsTopology"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundsTopology"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bounded by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/boundsTopology -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/boundsTopology">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundsTopology"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bounds topology</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/coordinateOfLocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/coordinateOfLocation">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasCoordinate"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coordinate of location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/deathDate -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/deathDate">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Animal"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TimePoint"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">death date</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation">
+        <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">designates location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/deviceAddress -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/deviceAddress">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/TelecommunicationDevice"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/ElectronicContact"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">device address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/direction -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/direction">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/distance -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/distance">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/elevation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/elevation">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/WorldGeodeticSystem"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/hasAddress -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasAddress">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/ContactInformation/PostalAddress"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/hasCoordinate -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasCoordinate">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has coordinate</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation">
+        <rdfs:subPropertyOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has location designation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/hasRelativeLocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasRelativeLocation">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/relativeTo"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has relative location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has toloplogy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/height -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/height">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Operating Location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Physical Boundary</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/isMediatingThing"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is Place of Occurrance</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/latitude -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/latitude">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/WorldGeodeticSystem"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/length -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/length">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/locationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/locationOf">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/situatedAt"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_situatedAt"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_locationOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">location of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/longitude -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/longitude">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/WorldGeodeticSystem"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_performsAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_performsAt">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_utilizedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_utilizedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/performsAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/performsAt">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_utilizedBy"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_performsAt"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">performs at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundedBy">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundsTopology -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundsTopology">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_locationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_locationOf">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_situatedAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_situatedAt">
+        <rdfs:subPropertyOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/mediates"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/relativeTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/relativeTo">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relative to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/situatedAt -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/situatedAt">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_locationOf"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_situatedAt"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">situated at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/standingHeight -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/standingHeight">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Animal"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">standing height</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/topologyOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/topologyOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">topology of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/utilizedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/utilizedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/performsAt"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_performsAt"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_utilizedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">utilized by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/weight -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/weight">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Mass"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/width -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/width">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+        <rdfs:range rdf:resource="https://models/modeldriven.org/Health/QuantityKinds/Length"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/temporallyRelated_relatedFrom"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/isTemporallyRelated"/>
+            <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/temporallyRelated_relatesTo"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifiedBy -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models/modeldriven.org/Health/Identifiers/identifies -->
+
+
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/physicalSex -->
+
+
+    <owl:DatatypeProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/physicalSex">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Animal"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SexKind"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">physical sex</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://models.modeldriven.org/Health/ContactInformation/PostalAddress -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ContactInformation/PostalAddress">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Animal -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Animal">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Conveyance -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Conveyance">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Device"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Device -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Device">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Facility -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Facility">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Item -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Item">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/IdentifiableThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/ManagedItemIdentifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/LocationID -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/LocationID">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/TextIdentifier"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location ID</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/ManagedItemIdentifier -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/ManagedItemIdentifier">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueIdentifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Managed Item Identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/OperatingLocation">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_performsAt"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/operatingLocation_utilizedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isOperatingLocation"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operating Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalBoundary">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporallyRelated"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/physicalBoundary_boundsTopology"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isPhysicalBoundary"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Boundary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalEntity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpatialEntity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalFeature -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalFeature">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpatialEntity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/IdentifiableThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalFeature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalPoint -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalPoint">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PhysicalTool -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalTool">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Resources/Tool"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Tool</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Place -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Place">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/ContactInformation/Contactable"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PlaceOfOccurrance">
+        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/MediatingThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Impact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_locationOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/placeOfOccurrance_situatedAt"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/isPlaceOfOccurrance"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place of Occurrance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/PointOnEarth -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/PointOnEarth">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Point On Earth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/RelativeCoordinate">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/relativeTo"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relative Coordinate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Residence -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Residence">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/LocationIdentifier"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spacial Coordinate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/SpatialEntity -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/SpatialEntity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/ActualEntity"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/DiscreetThing"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spatial Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/TelecommunicationDevice -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/TelecommunicationDevice">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Devices/CommunicatingDevice"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Telecommunication Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/Topology -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/Topology">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/topologyOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/PhysicalEntities/WorldGeodeticSystem -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/WorldGeodeticSystem">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PointOnEarth"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">World Geodetic System</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:31 GMT -->
