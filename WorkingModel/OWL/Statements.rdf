@@ -49,6 +49,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/approvalOfPlan">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Statements/approvedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Plan"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">approval of plan</rdfs:label>
@@ -73,7 +74,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Statements/approvedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Statements/approvalOfPlan"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Plan"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Statements/Approval"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">approved by</rdfs:label>
@@ -329,4 +329,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:24 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:31 GMT -->

@@ -109,15 +109,6 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-    </rdf:Description>
-    
-
-
     <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
 
 
@@ -125,17 +116,11 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-    
-
-
     <!-- https://models.modeldriven.org/Health/Values/definedWithinSystem -->
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/definedWithinSystem">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Values/unitOfSystem"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defined within system</rdfs:label>
@@ -147,7 +132,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Values/unitOfSystem">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Values/definedWithinSystem"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Values/SystemOfUnits"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Values/UnitType"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit of system</rdfs:label>
@@ -410,4 +394,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:33 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:42 GMT -->

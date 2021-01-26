@@ -35,15 +35,8 @@
     <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes"/>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
     </rdf:Description>
     
 
@@ -52,7 +45,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasBaseRole">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasDerivedRole"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasDerivedRole"/>
@@ -68,6 +60,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasDerivedRole">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasBaseRole"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/roleDerivation_hasBaseRole"/>
@@ -82,32 +75,23 @@
     <!-- https://models.modeldriven.org/Health/Foundation/hasSubtype -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSubtype">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
+    </rdf:Description>
     
 
 
     <!-- https://models.modeldriven.org/Health/Foundation/hasSupertype -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSupertype">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasSubtype"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasSupertype"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType"/>
     
 
 
@@ -231,10 +215,10 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/SituationTypes/CompositSituationType -->
+    <!-- https://models.modeldriven.org/Health/SituationTypes/CompositeSituationType -->
 
 
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/CompositSituationType">
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/SituationTypes/CompositeSituationType">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/SituationType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -243,7 +227,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A composite situation type is a Situation Definition that uses (synthesizes) other situation definitions as its parts. [Reenskaug 1995] Collaboration</terms:description>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composit Situation Type</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composite Situation Type</rdfs:label>
     </owl:Class>
     
 
@@ -335,7 +319,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
-                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/SituationTypes/CompositSituationType"/>
+                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/SituationTypes/CompositeSituationType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -366,4 +350,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:25 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:33 GMT -->

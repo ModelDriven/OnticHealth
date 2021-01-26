@@ -7,7 +7,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics">
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/HealthConditions"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Actors"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Characteristics</rdfs:label>
     </owl:Ontology>
@@ -30,7 +32,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/hasBodyPart">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has body part</rdfs:label>
@@ -42,10 +43,43 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HumanCharacteristics/isPartOfPerson">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/hasBodyPart"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is part of person</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/hasState -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/hasState">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/stateOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/stateOf"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo"/>
     
 
 
@@ -137,4 +171,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:10 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:50 GMT -->

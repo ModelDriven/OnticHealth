@@ -65,6 +65,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/consequenceOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/hasConsequence"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">consequence of</rdfs:label>
@@ -76,7 +77,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Plans/hasConsequence">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Plans/consequenceOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Plans/CourseOfAction"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Plans/Objective"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has consequence</rdfs:label>
@@ -241,4 +241,4 @@ Objective</terms:description>
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:34 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:43 GMT -->

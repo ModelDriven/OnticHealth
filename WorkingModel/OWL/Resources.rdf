@@ -76,6 +76,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Resources/dependsOn">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Resources/supports"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -151,7 +152,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Resources/supports">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Resources/dependsOn"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -442,4 +442,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:32 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:40 GMT -->

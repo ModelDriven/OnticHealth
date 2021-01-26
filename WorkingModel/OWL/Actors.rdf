@@ -9,6 +9,8 @@
     <owl:Ontology rdf:about="https://models.modeldriven.org/Health/Actors">
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/HealthConditions"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
     </owl:Ontology>
     
@@ -34,6 +36,18 @@
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/PersonStructuredName"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/UniqueTextIdentifier"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">given name</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Actors/hasVitalSign -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Actors/hasVitalSign">
+        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/hasState"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/HealthConditions/VitalSign"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has vital sign</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -128,19 +142,51 @@
     
 
 
+    <!-- https://models.modeldriven.org/Health/Situations/hasState -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/hasState"/>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/stateOf -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/stateOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/hasState"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    
+
+
     <!-- https://models/modeldriven.org/Health/Identifiers/identifiedBy -->
 
 
-    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+    </rdf:Description>
     
 
 
     <!-- https://models/modeldriven.org/Health/Identifiers/identifies -->
 
 
-    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies">
-        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies"/>
     
 
 
@@ -297,6 +343,26 @@
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
     </owl:Class>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/HealthConditions/VitalSign -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/HealthConditions/VitalSign">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Actors/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
 </rdf:RDF>
 
 
@@ -310,4 +376,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:26 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:34 GMT -->

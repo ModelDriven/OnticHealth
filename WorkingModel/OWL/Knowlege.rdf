@@ -12,12 +12,9 @@
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Values"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Occurrences"/>
-        <owl:imports rdf:resource="https://models.modeldriven.org/Health/ClinicalSituations"/>
-        <owl:imports rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Plans"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Resources"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations/"/>
-        <owl:imports rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Knowledge</rdfs:label>
     </owl:Ontology>
@@ -33,22 +30,6 @@
      -->
 
 
-    
-
-
-    <!-- https://models.modeldriven.org/Health/ClinicalSituations/determinedBy -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ClinicalSituations/determinedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/ClinicalSituations/hasFinding"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/ClinicalSituations/hasFinding -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ClinicalSituations/hasFinding"/>
     
 
 
@@ -72,8 +53,9 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/asBasisFor">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/basedOn"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">as basis for</rdfs:label>
     </owl:ObjectProperty>
     
@@ -83,20 +65,21 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/basedOn">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/asBasisFor"/>
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">based on</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://models.modeldriven.org/Health/Knowlege/confidence -->
+    <!-- https://models.modeldriven.org/Health/Knowlege/determinedBy -->
 
 
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/confidence">
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/Metric"/>
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/determinedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/hasFinding"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/KnowledgeAcqusition"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">determined by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -111,108 +94,53 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/Knowlege/heldBy -->
+    <!-- https://models.modeldriven.org/Health/Knowlege/hasFinding -->
 
 
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/heldBy">
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Participant"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">held by</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/holds -->
-
-
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/holds">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/heldBy"/>
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/Participant"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/resultsFrom -->
-
-
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/resultsFrom">
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/basedOn"/>
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/producedBy"/>
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsIn"/>
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/KnowledgeAcqusition"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results from</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/resultsIn -->
-
-
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/resultsIn">
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/asBasisFor"/>
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/produces"/>
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/hasFinding">
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/KnowledgeAcqusition"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results in</rdfs:label>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has finding</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://models.modeldriven.org/Health/Knowlege/supersededBy -->
+    <!-- https://models.modeldriven.org/Health/Knowlege/usedByInferenceActivity -->
 
 
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/supersededBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/supersedes"/>
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">superseded by</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/usedByInferenceActivity">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceRule"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceActivity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">used by inference activity</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://models.modeldriven.org/Health/Knowlege/supersedes -->
+    <!-- https://models.modeldriven.org/Health/Knowlege/usesInferenceRule -->
 
 
-    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/supersedes">
-        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Knowlege/usesInferenceRule">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/usedByInferenceActivity"/>
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceActivity"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceRule"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uses inference rule</rdfs:label>
     </owl:ObjectProperty>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Occurrences/producedBy -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/producedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/produces"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Occurrences/produces -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/produces"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Occurrences/usedBy -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/usedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/uses"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/usedBy"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Occurrences/uses -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/uses"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Occurrences/uses">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/usedBy"/>
+    </rdf:Description>
     
 
 
@@ -229,38 +157,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/affects"/>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Situations/isAbout -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isAbout">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Situations/isSubjectOf -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Time/overlapsFrom -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/overlapsFrom">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Time/overlapsTo -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/overlapsTo"/>
     
 
 
@@ -292,74 +188,21 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/ClinicalSituations/ClinicalOpinion -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/ClinicalSituations/ClinicalOpinion">
-        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Knowlege/Conclusion"/>
-        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Knowlege/Exclusion"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/Belief -->
-
-
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Belief">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
-                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/heldBy"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsFrom"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a belief is a kind of epistemic situation where an participant &lt;attests to&gt; the truth of a situation &lt;held by&gt; the participant &lt;based on&gt; other situations as evidence.</terms:description>
-    </owl:Class>
-    
-
-
     <!-- https://models.modeldriven.org/Health/Knowlege/Conclusion -->
 
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Conclusion">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredBelief"/>
-        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Knowlege/Exclusion"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Opinion"/>
     </owl:Class>
     
 
 
-    <!-- https://models.modeldriven.org/Health/Knowlege/Evidence -->
+    <!-- https://models.modeldriven.org/Health/Knowlege/EnquieryActivity -->
 
 
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Evidence">
-        <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/RelativeThing"/>
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Resources/Resource"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Situation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/playedBy"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Evidence is a kind of resource for situation(s) justifying qualitative positions.</terms:description>
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/EnquieryActivity">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/KnowledgeAcqusition"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enquiery Activity</rdfs:label>
     </owl:Class>
     
 
@@ -368,7 +211,7 @@
 
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Exclusion">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredBelief"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Opinion"/>
     </owl:Class>
     
 
@@ -378,12 +221,6 @@
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/InferenceActivity">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/KnowledgeAcqusition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsIn"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredBelief"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An activity that results in an assessment - An evaluation, appraisal, or assessment of something or someone. An assessment frequently as an artifact, a report of the assessment. 
 [NIEM] AssessmentType: The act of evaluating or estimating the nature, ability, or quality of something.</terms:description>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inference Activity</rdfs:label>
@@ -396,69 +233,7 @@
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/InferenceRule">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/ProcessType"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Occurrences/produces"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredBelief"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inference Rule</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/InferredBelief -->
-
-
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/InferredBelief">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsFrom"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceActivity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Occurrences/producedBy"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceRule"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsFrom"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Occurrences/producedBy"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inferred Belief</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/InferredValue -->
-
-
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/InferredValue">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredBelief"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inferred Value</rdfs:label>
     </owl:Class>
     
 
@@ -480,60 +255,11 @@
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/ObservationActivity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/ClinicalSituations/hasFinding"/>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/hasFinding"/>
                 <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsIn"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/MeasurementResult"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measurement Activity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/MeasurementResult -->
-
-
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/MeasurementResult">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Observation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsFrom"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/MeasurementActivity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
-                <owl:allValuesFrom rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsFrom"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isAbout"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measurement Result</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Knowlege/Observation -->
-
-
-    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Observation">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
     </owl:Class>
     
 
@@ -571,11 +297,21 @@
     
 
 
+    <!-- https://models.modeldriven.org/Health/Knowlege/Opinion -->
+
+
+    <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Opinion">
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
+        <terms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a view, judgment, or appraisal formed in the mind about a particular matter.</terms:description>
+    </owl:Class>
+    
+
+
     <!-- https://models.modeldriven.org/Health/Knowlege/Proposal -->
 
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Knowlege/Proposal">
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
     </owl:Class>
     
 
@@ -597,8 +333,9 @@
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferenceActivity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/resultsIn"/>
-                <owl:someValuesFrom rdf:resource="https://models.modeldriven.org/Health/Knowlege/InferredValue"/>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/hasFinding"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Situations/Quality"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Value Inference</rdfs:label>
@@ -612,9 +349,9 @@
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/Quality">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/determinedBy"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Knowlege/MeasurementResult"/>
+                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Knowlege/MeasurementActivity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -627,9 +364,8 @@
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/Situation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Situations/isSubjectOf"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://models.modeldriven.org/Health/Knowlege/Belief"/>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Knowlege/determinedBy"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -646,4 +382,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:30 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:38 GMT -->

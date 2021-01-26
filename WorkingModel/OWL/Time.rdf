@@ -29,28 +29,10 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
-    </rdf:Description>
-    
-
-
     <!-- https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTimeCoordinate"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale"/>
     
 
 
@@ -70,7 +52,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/existsFor">
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
         <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/intervalOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
@@ -179,6 +160,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/hasTimeCoordinate">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/hasTimeScale"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeScale"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/QuantitiesAndUnits/TimeCoordinate"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has time coordinate</rdfs:label>
@@ -190,7 +172,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/intervalOf">
-        <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Foundation/contextualizes"/>
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TimeInterval"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Situations/ActualSituation"/>
@@ -203,6 +184,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/isAfter">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/isBefore"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is after</rdfs:label>
@@ -214,7 +196,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/isBefore">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/isAfter"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is before</rdfs:label>
@@ -272,6 +253,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -290,7 +272,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -310,6 +291,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/startOf">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/startsAt"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start of</rdfs:label>
@@ -322,7 +304,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Time/startsAt">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/overlapsTo"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/startOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Time/TemporalRegion"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starts at</rdfs:label>
@@ -573,4 +554,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:27 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:35 GMT -->

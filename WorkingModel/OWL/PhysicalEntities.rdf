@@ -73,6 +73,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impactedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impacts"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impacts"/>
@@ -88,7 +89,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/impacts">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impactedBy"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/impact_impactedBy"/>
@@ -137,7 +137,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/boundedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/boundsTopology"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -157,6 +156,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/boundsTopology">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/boundedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -176,7 +176,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/coordinateOfLocation">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/designatesLocation"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasCoordinate"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coordinate of location</rdfs:label>
@@ -266,6 +265,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasCoordinate">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasLocationDesignation"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/coordinateOfLocation"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/SpacialCoordinate"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has coordinate</rdfs:label>
@@ -301,6 +301,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/topologyOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has toloplogy</rdfs:label>
@@ -430,6 +431,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/performsAt">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/utilizedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -533,7 +535,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/topologyOf">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/hasToloplogy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Topology"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/PhysicalLocation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">topology of</rdfs:label>
@@ -545,7 +546,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/PhysicalEntities/utilizedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/performsAt"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/PhysicalEntities/Place"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/Actor"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -614,16 +614,16 @@
     <!-- https://models/modeldriven.org/Health/Identifiers/identifiedBy -->
 
 
-    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy">
-        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifies"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
     
 
 
     <!-- https://models/modeldriven.org/Health/Identifiers/identifies -->
 
 
-    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies"/>
+    <rdf:Description rdf:about="https://models/modeldriven.org/Health/Identifiers/identifies">
+        <owl:inverseOf rdf:resource="https://models/modeldriven.org/Health/Identifiers/identifiedBy"/>
+    </rdf:Description>
     
 
 
@@ -1084,4 +1084,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:31 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:39 GMT -->

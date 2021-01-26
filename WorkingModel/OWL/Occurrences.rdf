@@ -34,25 +34,16 @@
     <!-- https://models.modeldriven.org/Health/Foundation/categorizes -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/hasType"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://models.modeldriven.org/Health/Foundation/contextualizes -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/contextualizes">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/categorizes"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Foundation/hasType -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/hasType">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
+    </rdf:Description>
     
 
 
@@ -87,19 +78,11 @@
     
 
 
-    <!-- https://models.modeldriven.org/Health/Foundation/inContextOf -->
-
-
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Foundation/inContextOf"/>
-    
-
-
     <!-- https://models.modeldriven.org/Health/Occurrences/createsProcessInstance -->
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/createsProcessInstance">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/casuses"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/enactementOf"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Occurrences/ProcessType"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/ActualOccurrence"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -119,6 +102,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/enactementOf">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/causedBy"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/createsProcessInstance"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Occurrences/ActualOccurrence"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/ProcessType"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -378,7 +362,6 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/producedBy">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/produces"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/Occurrence"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -398,6 +381,7 @@
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/produces">
         <rdfs:subPropertyOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/producedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Occurrences/Occurrence"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Foundation/IdentifiableThing"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -415,6 +399,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/requestedBy">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/requests"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Occurrences/Activity"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/Request"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requested by</rdfs:label>
@@ -426,7 +411,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/Occurrences/requests">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/requestedBy"/>
         <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/Occurrences/Request"/>
         <rdfs:range rdf:resource="https://models.modeldriven.org/Health/Occurrences/Activity"/>
     </owl:ObjectProperty>
@@ -558,7 +542,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/affectedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/affects"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affects"/>
@@ -574,6 +557,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/affects">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/affectedBy"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/effect_affectedBy"/>
@@ -589,6 +573,7 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/casuses">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causedBy"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causation_causedBy"/>
@@ -604,7 +589,6 @@
 
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/causedBy">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/casuses"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/causation_casuses"/>
@@ -666,16 +650,16 @@
     <!-- https://models.modeldriven.org/Health/Time/happensDuring -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/happensDuring"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/happensDuring">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/hasTemporalPart"/>
+    </rdf:Description>
     
 
 
     <!-- https://models.modeldriven.org/Health/Time/hasTemporalPart -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/hasTemporalPart">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/happensDuring"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/hasTemporalPart"/>
     
 
 
@@ -852,6 +836,7 @@
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Occurrences/Occurrence">
         <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/EpistemicSituation"/>
         <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
     </owl:Class>
     
 
@@ -1012,7 +997,7 @@
     <owl:Class rdf:about="https://models.modeldriven.org/Health/Occurrences/ProcessType">
         <rdfs:subClassOf rdf:resource="http://nomagic.com/ConceptModeler/ConceptModelingSupportLibrary/IdentifiableThing"/>
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/Occurrences/Occurrence"/>
-        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/CompositSituationType"/>
+        <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/SituationTypes/CompositeSituationType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/Foundation/categorizes"/>
@@ -1118,6 +1103,7 @@ A process may contain other entities, sub-processes and situations to define cha
 
     <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/EpistemicSituation">
         <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
     </rdf:Description>
     
 
@@ -1125,7 +1111,16 @@ A process may contain other entities, sub-processes and situations to define cha
     <!-- https://models.modeldriven.org/Health/Situations/OnticSituation -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/OnticSituation"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/OnticSituation">
+        <owl:disjointWith rdf:resource="https://models.modeldriven.org/Health/Situations/State"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://models.modeldriven.org/Health/Situations/State -->
+
+
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/State"/>
 </rdf:RDF>
 
 
@@ -1139,4 +1134,4 @@ A process may contain other entities, sub-processes and situations to define cha
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:21 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:29 GMT -->

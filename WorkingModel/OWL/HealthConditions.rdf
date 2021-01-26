@@ -11,6 +11,7 @@
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/SituationTypes"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Situations"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Actors"/>
+        <owl:imports rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics"/>
         <owl:imports rdf:resource="https://models.modeldriven.org/Health/Foundation"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Health Conditions</rdfs:label>
     </owl:Ontology>
@@ -29,6 +30,17 @@
     
 
 
+    <!-- https://models.modeldriven.org/Health/HealthConditions/hasBodySite -->
+
+
+    <owl:ObjectProperty rdf:about="https://models.modeldriven.org/Health/HealthConditions/hasBodySite">
+        <rdfs:domain rdf:resource="https://models.modeldriven.org/Health/HealthConditions/VitalSign"/>
+        <rdfs:range rdf:resource="https://models.modeldriven.org/Health/HumanCharacteristics/HumanBodyPart"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has body site</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://models.modeldriven.org/Health/HealthConditions/isAllergicTo -->
 
 
@@ -43,32 +55,32 @@
     <!-- https://models.modeldriven.org/Health/Situations/hasState -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/hasState">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/stateOf"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/hasState"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Situations/stateOf -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/stateOf"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Situations/stateOf">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Situations/hasState"/>
+    </rdf:Description>
     
 
 
     <!-- https://models.modeldriven.org/Health/Time/relatedFrom -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom">
-        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatesTo"/>
-    </rdf:Description>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatedFrom"/>
     
 
 
     <!-- https://models.modeldriven.org/Health/Time/relatesTo -->
 
 
-    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo"/>
+    <rdf:Description rdf:about="https://models.modeldriven.org/Health/Time/relatesTo">
+        <owl:inverseOf rdf:resource="https://models.modeldriven.org/Health/Time/relatedFrom"/>
+    </rdf:Description>
     
 
 
@@ -173,6 +185,12 @@
 
     <owl:Class rdf:about="https://models.modeldriven.org/Health/HealthConditions/VitalSign">
         <rdfs:subClassOf rdf:resource="https://models.modeldriven.org/Health/HealthConditions/HealthQuality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://models.modeldriven.org/Health/HealthConditions/hasBodySite"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vital Sign</rdfs:label>
     </owl:Class>
     
@@ -199,4 +217,4 @@
 <!-- Warning: type declarations were not added automatically. -->
 
 
-<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-05 at 20:41:09 GMT -->
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2021-01-26 at 23:14:49 GMT -->
