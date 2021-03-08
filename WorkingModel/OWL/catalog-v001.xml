@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Knowlege" uri="Knowlege.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/ClinicalSituations" uri="ClinicalSituations.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models/modeldriven.org/Health/Identifiers/" uri="Foundation.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Foundation" uri="Foundation.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Values" uri="Values.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Resources" uri="Resources.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Occurrences" uri="Occurrences.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Devices" uri="Devices.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/PhysicalEntities" uri="PhysicalEntities.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/ContactInformation" uri="ContactInformation.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Situations" uri="Situations.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/Time" uri="Time.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://models.modeldriven.org/Health/SituationTypes" uri="SituationTypes.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models/modeldriven.org/Health/QuantityKinds/" uri="QuantityKinds.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models/modeldriven.org/Health/Units/" uri="Units.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Actors/" uri="Actors.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/ClinicalSituations/" uri="ClinicalSituations.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/ContactInformation/" uri="ContactInformation.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Devices/" uri="Devices.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Foundation/" uri="Foundation.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/HealthConditions/" uri="HealthConditions.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/HumanCharacteristics/" uri="HumanCharacteristics.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Knowlege/" uri="Knowlege.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Medications/" uri="Medications.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Occurrences/" uri="Occurrences.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/PhysicalEntities/" uri="PhysicalEntities.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Plans/" uri="Plans.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/QuantitiesAndUnits/" uri="QuantitiesAndUnits.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Resources/" uri="Resources.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/SituationTypes/" uri="SituationTypes.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Situations/" uri="Situations.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Statements/" uri="Statements.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Time/" uri="Time.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610405418843" name="https://models.modeldriven.org/Health/Values/" uri="Values.rdf"/>
+    </group>
+</catalog>
