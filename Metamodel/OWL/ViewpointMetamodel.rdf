@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="http://models.modeldriven.org/ViewpointMetamodel/"
+     xml:base="http://models.modeldriven.org/ViewpointMetamodel/"
+     xmlns:VPMM="http://models.modeldriven.org/ViewpointMetamodel/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://models.modeldriven.org/ViewpointMetamodel/">
+        <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Viewpoint Metamodel</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The metamodel for viewpoints of ontological, conceptual, and physical models and the mappings between them.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/containedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/containedIn">
+        <rdfs:subPropertyOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/inContextOf"/>
+        <owl:inverseOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/contains"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Context that contains the definition of the existence and fundamental characteristics of a resource.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/container -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/container">
+        <rdfs:subPropertyOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/subjectType"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/DataAttribute"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Record"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">THe container that defines the existence and fundamental characteristics of a resource. The container is considered the &quot;systemn of record&quot; about something but may not contain all the information about that thing.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/contains -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/contains">
+        <rdfs:subPropertyOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/contextualizes"/>
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A resource contained in and defined within a package.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/contextualizes -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/contextualizes">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anything &quot;in&quot; a context and subject to the constraints and characteristics defined for that context.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/definingPath -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/definingPath">
+        <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/PathStep"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the first step that defines how a derived property is derived based on a path - a series of steps.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/endOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/endOf">
+        <owl:inverseOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/hasEnd"/>
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Relationship"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The relationship that, if defined, &quot;owns&quot; the ends.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/facetOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/facetOf">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Facet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The class of things that may have a particular kind of facet.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/foreignKeyOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/foreignKeyOf">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/DataAttribute"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property that provides data to identify the opposite end of a relationship as used in typical E/R models.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/hasEnd -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/hasEnd">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Relationship"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">One end of a relationship.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/hasEquivalent -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/hasEquivalent">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/EquivalentConstraint"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">One of a set of things that is equivalent based on an equivalent constraint.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/hasValue -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/hasValue">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ValueConstraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">one of a set of possible values for a value constraint.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/hasValueSet -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/hasValueSet">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ValueConstraint"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Package"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a package containing a set of values, any one of which may satisfy a value set.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/haskey -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/haskey">
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property where all hasKey properties together define the identity of instances of a class.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/imports -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/imports">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A context where the elements contextualized by the imported context are included in the subject context.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/inContextOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/inContextOf">
+        <owl:inverseOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/contextualizes"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A context that contextualizes something.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/inverseOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/inverseOf">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The other end of a relationship, defined for convenience and OWL compatibility. if a relationship has two ends they will be inverse of each other.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/nextStep -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/nextStep">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/PathStep"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/PathStep"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the next step in a path, if any.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/redefines -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/redefines">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#specializes"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A specialization of the object thing hiding the objects name but retaining all definitional characteristics in a more specialized context.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/represents -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/represents">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/RepresentationConstraint"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A class of things that is  information or data about the referenced concept.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/returnType -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/returnType">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the set of types (or&apos;d together) a  property may return - returnType is an &lt;or&gt; variant of range.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/subjectType -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/subjectType">
+        <rdfs:subPropertyOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/inContextOf"/>
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the set of types (or&apos;d together) that the  property may describe - subjectType is an &lt;or&gt; variant of domain.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/traverses -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/traverses">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/PathStep"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The property traversed by a path step.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/withRespectTo -->
+
+
+    <owl:ObjectProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/withRespectTo">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Facet"/>
+        <rdfs:range rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">withRespectTo defines the and of a relationship that implies the existence of a facet.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/defaultContextVisibility -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/defaultContextVisibility">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/VisibilityConstraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A number indicating the relevance and importance of a set of concepts within a context where 1 is the most important.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/isOrdered -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/isOrdered">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assertion that the set of values is ordered.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/isSubject -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/isSubject">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/End"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">siSubject indicates that an end represents the subject, or &quot;from&quot; end of a directed relationship.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/maxCardinality -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/maxCardinality">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The maximum number of values for a property for a given subject.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/minCardinality -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/minCardinality">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The maximum number of values for a property for a given subject.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/visibility -->
+
+
+    <owl:DatatypeProperty rdf:about="http://models.modeldriven.org/ViewpointMetamodel/visibility">
+        <rdfs:domain rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/VisibilityConstraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A number indicating the relevance and importance of a concept within a context where 1 is the most important.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/isOrdered"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/maxCardinality"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/minCardinality"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An abstract kind of thing that defines constraints used by both properties and path steps.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constrained Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Constraint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Constraint">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+A constraint specifies a condition that an instance of a thing must satisfy.&lt;/body&gt;
+&lt;/html&gt;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Context -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Context">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Context is an abstract thing with a set of constraints, capabilities, and characteristics that must be satisfies for anything contextualized by that context.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/DataAttribute -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/DataAttribute">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/container"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/foreignKeyOf"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A data attribute is a property of an information record, holding data about a characteristic of something. A data attribute may be defined by a semantic [property it represents.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Attribute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Domain -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Domain">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A domain is a context defined for a subject area or area of interest such as clinical health care or mortgage loans.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/End -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/End">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/endOf"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/inverseOf"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/isSubject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property that defines one end of a relationship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Entity -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Entity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A type of thing with independent existence in the world. Things include physical-spacial/temporal and social constructs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Enumeration -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Enumeration">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Package"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#isConstrainedBy"/>
+                <owl:someValuesFrom rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ValueConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A type that defines a fixed set of individuals, normally but not necessarily values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/EquivalentConstraint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/EquivalentConstraint">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/hasEquivalent"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An equivalent constraint requires that all hasEquivalent things have the same extent - that they classify the same set of things.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Equivalent Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Facet -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Facet">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/facetOf"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/withRespectTo"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A contextual aspect of something else. This includes roles &amp; phases. The type of things that may have this aspect is specified by facetOf, which is inherited by all subclasses of a facet.
+
+A facet defined with withRespectTo has a lifetime corresponding the lifetime of the end, which in tern corresponds to the lifetime of the end&apos;s relationship. E.g. Joe is a pilot of a particular flight, while that flight is occurring.
+
+A facet defined without withRespectTo has an arbitrary lifetime defined by factors outside of the model. E.g. Joe is a pilot, meaning Joe can fly airplanes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Package -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Package">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A package is a structural context that contains the definition of resources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/PathStep -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/PathStep">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/ConstrainedProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/nextStep"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/traverses"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A path step is one node of a path that is one traversal - constrained step in a path, where the entire path defines a property that hasDefinition of the head of the path. Constraints are applied after traversal of the traverses property, if any.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Path Step</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Record -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Record">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A data structure used for storing information about other things. Records may be semantically defined by specifying what they represent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Relationship -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Relationship">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/hasEnd"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/hasEnd"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A relationship classifies how two things are connected via the ends of the relationship.
+Note that a choice was made for relationships to be binary, however relationships may have attributes and participate as ends of other relationships.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/RepresentationConstraint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/RepresentationConstraint">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/represents"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constraint that the defining thing represents, is information about, the represented thing. The defining thing can be considered &quot;epistemic&quot; (about knowledge) where as the represented thing can be considered &quot;ontological&quot;, about the world.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Representation Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Restriction -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Restriction">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A restriction is a phudo property that places additional restrictions on the super-properties (subPropertyOf and redefines). Restrictions to not define an additional predicate but restrict other predicates. The URI for a restriction should not be used in a RDF triple.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Value -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Value">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A class if resources where their identity and contents are the same. Values do not change over time or have independent identity.Values may be primitive (e.g. numbers) or complex (e.g. a person&apos;s full name).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/ValueConstraint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/ValueConstraint">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Constraint"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+A Value Constraint is a constraint that requires that a class is one of the values specified by hasValue or one of the values contained by hasValueSet.&lt;/body&gt;
+&lt;/html&gt;</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Value Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/Viewpoint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/Viewpoint">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Context"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A viewpoint is a context defined for a set of stakeholders.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://models.modeldriven.org/ViewpointMetamodel/VisibilityConstraint -->
+
+
+    <owl:Class rdf:about="http://models.modeldriven.org/ViewpointMetamodel/VisibilityConstraint">
+        <rdfs:subClassOf rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/visibility"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/defaultContextVisibility"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A visibility constraint specifies how relevant and important a concept is within a context.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visibility Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Property -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/definingPath"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://models.modeldriven.org/ViewpointMetamodel/containedIn"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+
+
+
+
+<!-- Warning: type declarations were not added automatically. -->
+
+
+<!-- Generated using the No Magic Cameo Concept Modeler (19.0 SP3, build 20190909_1921-137b5364) on 2023-02-06 at 16:06:13 GMT -->
